@@ -1,5 +1,6 @@
 # TPM-Vibration 
   Version: 1.0
+  
   Date: 11/08/2022
 
 ## Introduction
@@ -9,8 +10,11 @@
 
 ## Description
   The code is writen in PT-BR (might upload an EN version soon) and is structured as follows:
-  ![alt text](https://i.imgur.com/dvw1BfP.png)
-
+  
+  <p align="center">
+  <img src="https://i.imgur.com/dvw1BfP.png" alt="Sublime's custom image"/>
+  </p>
+  
   OPTMIZATION: Has the properties of the optimization function with the goal to evaluate the main code to get the optimum value of modification;
   
   SIMULATION: The main code, where all the constants and properties of the gear mesh and operation. Holding all the other functions mentioned below;
