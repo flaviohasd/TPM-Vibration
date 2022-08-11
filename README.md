@@ -4,12 +4,10 @@
   Date: 11/08/2022
 
 ## Introduction
-  Hello, my name is Flávio Dias. I'm a graduating student of Mechanical Engineering at Federal University of Amazonas and this project was developed for my final paper.
-  The aim of this project is to minimize the amplitude of the vibration signal of a spur gear mesh system by changing the maximum amount of tip relief (adendum modification) for a certain condition of operation.
-  The paper is beeing writen at the moment and the link to it will be available when the official version comes public.
+    Hello, my name is Flávio Dias. I'm a graduating student of Mechanical Engineering at Federal University of Amazonas and this project was developed for my final paper. The aim of this project is to minimize the amplitude of the vibration signal of a spur gear mesh system by changing the maximum amount of tip relief (adendum modification) for a certain condition of operation. The paper is beeing writen at the moment and the link to it will be available when the official version comes public.
 
 ## Description
-  The code is writen in PT-BR (might upload an EN version soon) and is structured as follows:
+  The code is writen in MATLAB in PT-BR (might upload an EN version soon) and is structured as follows:
   
   <p align="center">
   <img src="https://i.imgur.com/dvw1BfP.png" alt="Sublime's custom image"/>
@@ -44,3 +42,10 @@
   SIGNAL: Quantifies the vibration signals;
   
   PLOTS: Generate the graphics for analysis.
+  
+  
+  The idea of this post is to contribute with the learners, so you don't waste time doing what others already did and can develop even further.
+  
+  You can reproduce this as long you keep it well referenced.
+  
+  Cheers.
