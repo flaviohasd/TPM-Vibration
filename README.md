@@ -1,10 +1,9 @@
-# WARNING
-  This project is still under development! Changes may occour often.
-
 # TPM-Vibration 
   Version: 1.0
   
   Date: 14/08/2022
+  
+  Note: This project is still under development! Changes may occour often.
 
 ## Introduction
   Hello, my name is Flávio Dias. I'm a graduating student of Mechanical Engineering at Federal University of Amazonas and this project was developed for my final paper. The aim of this project is to minimize the amplitude of the vibration signal of a spur gear mesh system by changing the maximum amount of tip relief (adendum modification) for a certain condition of operation. The paper is currently beeing writen at the moment and the link to it will be available when the official version comes public.
