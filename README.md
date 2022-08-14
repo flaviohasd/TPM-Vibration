@@ -1,3 +1,6 @@
+# WARNING
+  This project is still under development! Changes may occour often.
+
 # TPM-Vibration 
   Version: 1.0
   
