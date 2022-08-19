@@ -1,9 +1,9 @@
 # TPM-Vibration 
-  Version: 1.1
+  Version: 1.2
   
   Release: 11/08/2022
   
-  Last update: 14/08/2022
+  Last update: 19/08/2022
   
   Note: This project is still under development! Changes may occour often.
 
@@ -13,7 +13,7 @@
 ## Description
   The idea of this post is to contribute with the learners, so they don't waste time doing what others already did and then develop even further. You can reproduce this as long you keep it well referenced.
   
-  The code is writen in MATLAB in PT-BR (might upload an EN version soon) and is structured as follows:
+  Please note: the code is writen in MATLAB in PT-BR language (might upload an EN version soon) and is structured as follows:
   
   <p align="center">
   <img src="https://i.imgur.com/dvw1BfP.png" alt="Sublime's custom image"/>
