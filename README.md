@@ -16,7 +16,7 @@
   Please note: the code is writen in MATLAB in PT-BR language (might upload an EN version soon) and is structured as follows:
   
   <p align="center">
-  <img src="https://i.imgur.com/dvw1BfP.png" alt="Sublime's custom image"/>
+  <img src="https://imgur.com/a/r86Nqor.png" alt="Sublime's custom image"/>
   </p>
   
   OPTMIZATION: Has the properties of the optimization function with the goal to evaluate the main code to get the optimum value of modification;
