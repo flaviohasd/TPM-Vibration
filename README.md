@@ -16,7 +16,7 @@
   Please note: the code is writen in MATLAB in PT-BR language (might upload an EN version soon) and is structured as follows:
   
   <p align="center">
-  <img src="https://imgur.com/a/r86Nqor.jpg" alt="Optimization Flowchart"/>
+  <img src="https://imgur.com/a/wAHjoAF.jpg" alt="Optimization Flowchart"/>
   </p>
   
   OPTMIZATION: Has the properties of the optimization function with the goal to evaluate the main code to get the optimum value of modification;
