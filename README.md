@@ -1,5 +1,5 @@
 # TPM-Vibration 
-  Version: 1.0
+  Version: 2.0
   
   Release: 26/08/2022
    
