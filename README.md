@@ -2,6 +2,8 @@
   Version: 2.0
   
   Release: 26/08/2022
+  
+  Last Update: 26/08/2022
    
   Note: This project is still under development! Changes may occour often.
 
