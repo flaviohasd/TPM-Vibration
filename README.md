@@ -48,6 +48,23 @@
   
   PLOTS: Generate the graphics for analysis.
   
-
   
-  Cheers.
+  
+   
+   
+  OUTPUT EXAMPLES:
+  
+  <p align="center">
+  <img src="https://i.imgur.com/24b0nM1.jpg" alt="Vibration over a tooth cycle" width="800" />
+  </p>
+
+  <p align="center">
+  <img src="https://i.imgur.com/Qlf5hNn.jpg" alt="Contact relations" width="800" />
+  </p>
+  
+  
+  For more tecnical details, give a look on the paperwork.
+  
+  Cheers,
+  
+  Flávio Dias.
