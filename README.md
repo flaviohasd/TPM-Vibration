@@ -5,7 +5,6 @@
   
   Last Update: 26/08/2022
    
-  Note: This project is still under development! Changes may occour often.
 
 ## Introduction
   Hello, my name is Flávio Dias. I'm a Mechanical Engineering undergraduate student at Federal University of Amazonas (Brazil) and this project was developed for my final paper. The goal of this project is to minimize the amplitude of the vibration signal of a spur gear mesh system by changing the maximum amount of tip relief (adendum modification) for a certain condition of operation. The paper is currently beeing writen at the moment and the link to it will be available when the official version becomes public.
