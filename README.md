@@ -63,7 +63,7 @@
   </p>
   
   
-  For more tecnical details, take a look on the paperwork.
+  For more technical details, take a look on the paperwork.
   
   Cheers,
   
