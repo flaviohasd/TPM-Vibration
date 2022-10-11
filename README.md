@@ -7,7 +7,7 @@
    
 
 ## Introduction
-  Hello, my name is Flávio Dias. I'm a Mechanical Engineering undergraduate student at Federal University of Amazonas (Brazil) and this project was developed for my final paper. The goal of this project is to minimize the amplitude of the vibration signal of a spur gear mesh system by changing the maximum amount of tip relief (adendum modification) for a certain condition of operation. The paper is currently beeing writen at the moment and the link to it will be available when the official version becomes public.
+  Hello, my name is Flávio Dias. I'm a Mechanical Engineering undergraduate student at Federal University of Amazonas (Brazil) and this project was developed for my final paper. The goal is to minimize the amplitude of the vibration signal of a spur gear mesh system by changing the maximum amount of tip relief (adendum modification) for a certain condition of operation. The paper is currently beeing writen and the link to it will be available when the official version becomes public.
 
 ## Description
   The idea of this post is to contribute with the learners, so they don't waste time doing what others already did and then develop even further. You can reproduce this as long you keep it well referenced.
