@@ -143,7 +143,7 @@ function [theta1vg,vrelv,R1,delta,Tauv,Kte,Ktem,K12,C,Cm,TE,TEm,dTE] = energia(s
 
          % Erros de engrenamento
             % Energia
-                TE(i) = F/(Kte1+Kte2); % Erro de transmiss„o teorico (m)
+                TE(i) = F/(Kte1+Kte2); % Erro de transmiss√£o teorico (m)
                 dTE1 = (Kte1*deltax1/1000)/Kte(i); % Erro de transmissao estatica equivalente (par 1) (m)
                 dTE2 = (Kte2*deltax2/1000)/Kte(i); % Erro de transmissao estatica equivalente (par 2) (m)
                 dTE(i) = dTE1 + dTE2; % Erro de transmissao estatica equivalente total (m)
@@ -153,11 +153,11 @@ function [theta1vg,vrelv,R1,delta,Tauv,Kte,Ktem,K12,C,Cm,TE,TEm,dTE] = energia(s
             Fn = F*cos(alphax1dsd); % Forca normal a superficie do dente no ponto de contato (N)
             Ft = F*sin(alphax1dsd); % Forca tangencial a superficie do dente no ponto de contato (N)
             vrel = abs(w*x1dsd/1000-(rp1/rp2)*w*x2dsd/1000); vrelv(i) = vrel;
-            mu = 0.1211; % 0.12*(Ft*Ra/(v0*vrel*rx1dsd/1000))^0.25; % Coeficiente de atrito. Valor medio de mu = 0.015 / mu m·x (ponto primitivo) = 0.1211.
+            mu = 0.1211; % 0.12*(Ft*Ra/(v0*vrel*rx1dsd/1000))^0.25; % Coeficiente de atrito. Valor de mu m√°x (ponto primitivo) = 0.1211.
             Fa = Fn*mu; % Forca de atrito
             B0 = Fn/Kte(i); % Amplitude da vibracao (equivalente a deformacao estatica);
             Wa = 4*Fa*B0; % Trabalho realizado pelo atrito
-            U = (Fn^2)/(2*Kte(i)); % Energia perdida pelo atrito (equivalente ‡ energia perdida na deformacao do dente);
+            U = (Fn^2)/(2*Kte(i)); % Energia perdida pelo atrito (equivalente √† energia perdida na deformacao do dente);
             zeta = Wa/(4*pi*U); % Fator de amortecimento
 
             C(i) = 2*zeta*sqrt(me*Kte(i)); % Coeficiente de amortecimento (kg/s)
