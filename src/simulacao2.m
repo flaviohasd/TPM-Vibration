@@ -1,9 +1,8 @@
 function mm = simulacao(deltamax)
     syms rx1 rx2 alpha1 alpha2 x
   %% PARAMETROS UTILIZADOS NO CODIGO
-        ciclos = 1; % Quantidade de ciclos para análise (min=1, maior -> mais lento e a expansão causa erros de interpolacao)
+        ciclos = 1; % Quantidade de ciclos para anÃ¡lise (min=1, maior -> mais lento e a expansÃ£o causa erros de interpolacao)
         step = 1e4; % Quantidade de iteracoes a serem realizadas no loop para calculo da rigidez e demais parametros (ATENCAO: utilizar no minimo 1e4 para evitar acumulo de erros das iteracoes do calculo da rigidez)
-%         deltamax = 102.9225; % Coeficiente de mofificacao do adendo maximo (µm)
         x0 = [0; 0]; % Condicoes iniciais: [posicao(0) velocidade(0)] do modelo dinamico em espaco de estados
 
     %% CONSTANTES
@@ -17,17 +16,17 @@ function mm = simulacao(deltamax)
             E = 206e9; % Modulo de elasticidade (Pa)
             v = 0.3; % Coeficiente de Poisson
             p = 7850; % Densidade do material (kg/m^3)
-            Ra = 0.63/1e6; % Rugosidade da superficie (µm)
+            Ra = 0.63/1e6; % Rugosidade da superficie (Âµm)
 
         % CONDICOES DE OPERACAO
             Pot = 150e3; % Potencia de entrada (W) (pinhao)
             W = 1500; % Rotacao do pinhao (rpm)
 
             p0 = 870;  % Densidade do lubrificante (kg/m^3)
-            t0 = 60; % Temperatura de operacao (°C)
-            v0 = 38.5+(t0-100)*(38.5-320)/(100-40); % Viscosidade cinematica (cst) -  320 (40°C) / 38.5 (100°C)
+            t0 = 60; % Temperatura de operacao (Â°C)
+            v0 = 38.5+(t0-100)*(38.5-320)/(100-40); % Viscosidade cinematica (cst) -  320 (40Â°C) / 38.5 (100Â°C)
 
-            % CHECK DE INCONSISTÊNCIAS
+            % CHECK DE INCONSISTÃŠNCIAS
                 % Pinhao coroa
                     if z1 > z2
                         temp = z1;
@@ -38,14 +37,14 @@ function mm = simulacao(deltamax)
                 % Angulo de pressao
                     alphacrit = asin(sqrt(2/z1));   % Teste de angulo de pressao critico
                     if alphacrit > alpha
-                        fprintf('Angulo de pressao menor que o critico: %.2f°! - Solucao: Aumentar o numero de dentes. \n',rad2deg(alphacritdeg))
+                        fprintf('Angulo de pressao menor que o critico: %.2fÂ°! - Solucao: Aumentar o numero de dentes. \n',rad2deg(alphacritdeg))
                         return
                     end
                     
                 % Numero de dentes
                     zmin = ceil((2/(3*(sin(alpha))^2))*(1+sqrt(1+3*sin(alpha)^2)));
                     if z1 < zmin
-                        fprintf('Numero de dentes inferior ao minimo: %.2f°! - Solução: Aumentar o numero de dentes. \n',zmin)
+                        fprintf('Numero de dentes inferior ao minimo: %.2fÂ°! - SoluÃ§Ã£o: Aumentar o numero de dentes. \n',zmin)
                     return
                     end
 
