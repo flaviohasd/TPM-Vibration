@@ -63,8 +63,6 @@
   </p>
   
   
-  For more technical details, take a look on the paperwork.
+  For more technical details, take a look in the paperwork.
   
-  Cheers,
-  
-  Flávio Dias.
+  Cheers.
