@@ -24,11 +24,11 @@
   
   SIMULACAO: The main code, where all the constants and properties of the gear mesh and operation. Holding all the other functions mentioned below;
   
-  ENGRENAGEM: It calculates the dimentions given the entries in SIMULATION;
+  ENGRENAGEM: It calculates the dimentions given the entries in SIMULACAO;
   
-  OPERACAO: Calculates the gear mesh relations given the entries in SIMULATION;
+  OPERACAO: Calculates the gear mesh relations given the entries in SIMULACAO;
   
-  ENGRENAMENTO: Calculates the mesh parameters given the gear and operation entries in SIMULATION;
+  ENGRENAMENTO: Calculates the mesh parameters given the gear and operation entries in SIMULACAO;
   
   MASSA: Calculates de equivalent mass of the sistem given the dimentions and the profile modification;
   
