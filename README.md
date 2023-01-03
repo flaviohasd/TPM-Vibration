@@ -20,28 +20,28 @@ cylindrical spur gears. 2022. 113f. Undergraduate thesis (Mechanical Engineering
   Please note: the code is writen in MATLAB in PT-BR language (might make an EN version someday) and is structured as follows:
   
   <p align="center">
-  <img src="https://i.imgur.com/x1Hqzyq.jpg" alt="Optimization Flowchart" width="400" />
+    <img src="https://i.imgur.com/x1Hqzyq.jpg" alt="Optimization Flowchart" width="400" />
   </p>
   
-  OTIMIZACAO: Has the properties of the optimization function with the goal to evaluate the main code to get the optimum value of modification;
+  OTIMIZACAO: Has the properties of the optimization function with the goal to evaluate the main code (SIMULACAO) to get the optimum amount of modification;
   
-  SIMULACAO: The main code, where all the constants and properties of the gear mesh and operation. Holding all the other functions mentioned below;
+  SIMULACAO: The main code, where all the constants and properties of the gear, mesh and operation. Holding all the other functions mentioned below;
   
-  ENGRENAGEM: It calculates the dimentions given the entries in SIMULACAO;
+  ENGRENAGEM: Calculates the gear dimentions given the entries in SIMULACAO;
   
   OPERACAO: Calculates the gear mesh relations given the entries in SIMULACAO;
   
   ENGRENAMENTO: Calculates the mesh parameters given the gear and operation entries in SIMULACAO;
   
-  MASSA: Calculates de equivalent mass of the sistem given the dimentions and the profile modification;
+  MASSA: Calculates de equivalent mass of the sistem given the dimentions and the profile modification amount;
   
   INTEG: Calculates de integrals for the stiffness by the energy formulas;
   
-  ENERGIA: Calculates de stiffness by the energy formula of the original and modified systems;
+  ENERGIA: Calculates de stiffness by the energy formulas of the original and modified systems;
   
   INTERP: Interpolate the discrete functions to obtain the continuos representation of the dynamic coefficients;
   
-  MODELO: Sets the space states variables together with the acceleration of the original and modified system;
+  MODELO: Sets the space-states variables together with the acceleration of the original and modified system;
   
   DINAMICA: Solves the original dynamic model;
   
