@@ -67,4 +67,6 @@ cylindrical spur gears. 2022. 113f. Undergraduate thesis (Mechanical Engineering
   
   For more technical details, take a look in the paperwork (for now, only available in portuguese).
   
-  Cheers.
+  If you have any questions regarding the theory, models, code, or anything related, fell free to reach me out.
+  
+  Cheers!
