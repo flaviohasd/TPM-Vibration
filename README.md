@@ -18,9 +18,9 @@ cylindrical spur gears. 2022. 113f. Bachelor's thesis (Mechanical Engineering) -
 ## Code Description  
   
   Please note: the code is writen in MATLAB in PT-BR language (might make an EN version someday) and is structured as follows:
-  
+   
    <p align="center">
-    <img src="https://user-images.githubusercontent.com/44821460/229380362-289ff27d-ed61-4c5d-972b-f35a65d04a16.png" alt="Optimization Flowchart" width="400" />
+    <img src="https://user-images.githubusercontent.com/44821460/229647700-c42eb337-b27c-4255-a5a6-d011777e9318.png" alt="Optimization Flowchart" width="400" />
   </p>
   
   OTIMIZACAO: Has the properties of the optimization function with the goal to evaluate the main code (SIMULACAO) to get the optimum amount of modification;
