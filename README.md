@@ -19,8 +19,11 @@ cylindrical spur gears. 2022. 113f. Bachelor's thesis (Mechanical Engineering) -
   
   Please note: the code is writen in MATLAB in PT-BR language (might make an EN version someday) and is structured as follows:
    
+  
+  
+  
    <p align="center">
-    <img src="https://user-images.githubusercontent.com/44821460/229647700-c42eb337-b27c-4255-a5a6-d011777e9318.png" alt="Optimization Flowchart" width="400" />
+    <img src="https://user-images.githubusercontent.com/44821460/229648230-598b24b0-9d1d-4a95-9a83-59e314eb715f.png" alt="Optimization Flowchart" width="400" />
   </p>
   
   OTIMIZACAO: Has the properties of the optimization function with the goal to evaluate the main code (SIMULACAO) to get the optimum amount of modification;
@@ -57,11 +60,11 @@ cylindrical spur gears. 2022. 113f. Bachelor's thesis (Mechanical Engineering) -
   OUTPUT EXAMPLES:
   
   <p align="center">
-  <img src="https://i.imgur.com/24b0nM1.jpg" alt="Vibration over a tooth cycle" width="800" />
+  <img src="https://user-images.githubusercontent.com/44821460/229649401-0d25b9ec-c8d3-4a33-8ed5-cbb5b5647c89.png" alt="Vibration over a tooth cycle" width="800" />
   </p>
 
   <p align="center">
-  <img src="https://i.imgur.com/Qlf5hNn.jpg" alt="Contact relations" width="800" />
+  <img src="https://user-images.githubusercontent.com/44821460/229649434-e6c5db90-def7-45b1-a3a1-66177c0f6cb1.png" alt="Contact relations" width="800" />
   </p>
   
   
