@@ -1,10 +1,10 @@
-%function RMSatpm = simulation(deltamax) % Perform the optimization using the RMS of the acceleration signal
+function RMSatpm = simulation(deltamax) % Perform the optimization using the RMS of the acceleration signal
     syms rx1 rx2 alpha1 alpha2 x
 
   %% PARAMETERS OF THE CODE
         cycle = 1; % Cycle (gear revolution) quantity for analysis (min=1, bigger it is -> slower the code and it may cause interpolation errors)
         step = 1e4; % Quantity of iteractions to use in the loop for the stiffness calculation. (OBS: Use at least 1e4 to avoid big iteraction errors)
-        deltamax = 43.5334; % Maximum amount of modification (µm)      %% Leave it commented for the optimization process.
+        % deltamax = 43.5334; % Maximum amount of modification (Âµm)      %% Leave it commented for the optimization process.
         x0 = [0; 0]; % Initial conditions of the space-state model: [displacement(0) velocity(0)] of the dynamic model
 
     %% CONSTANTS
@@ -25,8 +25,8 @@
             W = 2000; % Input rotation (rpm) (pinion)
 
             p0 = 870;  % Lubricant density (kg/m^3)
-            t0 = 60; % Operating temperature (°C)
-            v0 = 38.5+(t0-100)*(38.5-320)/(100-40); % Kinematic viscosity (cst) -  320 (40°C) / 38.5 (100°C)
+            t0 = 60; % Operating temperature (Â°C)
+            v0 = 38.5+(t0-100)*(38.5-320)/(100-40); % Kinematic viscosity (cst) -  320 (40Â°C) / 38.5 (100Â°C)
             
             % Inconsistency check
                 % Pinion gear
@@ -39,14 +39,14 @@
                 % Pressure angle
                     alphacrit = asin(sqrt(2/z1));   % Testing the critical pressure angle
                     if alphacrit > alpha
-                        fprintf('Pressure angle less than the critial angle: %.2f°! - Solution: increase the number of teeth. \n',rad2deg(alphacritdeg))
+                        fprintf('Pressure angle less than the critial angle: %.2fÂ°! - Solution: increase the number of teeth. \n',rad2deg(alphacritdeg))
                         return
                     end
                     
                 % Number of teeth
                     zmin = ceil((2/(3*(sin(alpha))^2))*(1+sqrt(1+3*sin(alpha)^2)));
                     if z1 < zmin
-                        fprintf('Number of teeth is less than minimum: %.2f°! - Solution: increase the number of teeth. \n',zmin)
+                        fprintf('Number of teeth is less than minimum: %.2fÂ°! - Solution: increase the number of teeth. \n',zmin)
                     return
                     end
 
@@ -92,4 +92,4 @@
     %% PLOTS
          [mm] = plots(Ampx,Ampa,RMSx,RMSa,Ampxtpm,Ampatpm,RMSxtpm,RMSatpm,Kte,deltamax,w,theta1vg,C,vrelv,thetad,thetas,R1,Kteint,KexData,KeyData,Cint,CxData,CyData,t1,t2,states,statestpm,time,acel,aceltpm,dmf,dmftpm,Tauv,Ktem,TEexp,TEmexp,step,z1,delta,ft,fttpm);
 
-%end
+end
