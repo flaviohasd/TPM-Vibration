@@ -17,7 +17,7 @@ cylindrical spur gears. 2022. 113f. Bachelor's thesis (Mechanical Engineering) -
   
 ## Code Description  
   
-  Please note: the code is structured as follows:
+  The algorithm is structured as follows:
 
    <p align="center">
     <img src="https://user-images.githubusercontent.com/44821460/229648230-598b24b0-9d1d-4a95-9a83-59e314eb715f.png" alt="Optimization Flowchart" width="400" />
