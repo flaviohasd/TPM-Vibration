@@ -1,9 +1,9 @@
 # TPM-Vibration 
-  Version: 2.1
+  Version: 2.2
   
   Release: 14/08/2022
   
-  Last Update: 22/10/2022
+  Last Update: 08/04/2023
    
 
 ## Introduction
@@ -17,42 +17,41 @@ cylindrical spur gears. 2022. 113f. Bachelor's thesis (Mechanical Engineering) -
   
 ## Code Description  
   
-  Please note: the code is writen in MATLAB in PT-BR language (might make an EN version someday) and is structured as follows:
-   
-  
-  
-  
+  Please note: the code is structured as follows:
+
    <p align="center">
     <img src="https://user-images.githubusercontent.com/44821460/229648230-598b24b0-9d1d-4a95-9a83-59e314eb715f.png" alt="Optimization Flowchart" width="400" />
   </p>
   
-  OTIMIZACAO: Has the properties of the optimization function with the goal to evaluate the main code (SIMULACAO) to get the optimum amount of modification;
+  OPTIMIZATION: Has the properties of the optimization function with the goal to evaluate the main code (SIMULATION) to get the optimum amount of modification;
   
-  SIMULACAO: The main code, where all the constants and properties of the gear, mesh and operation. Holding all the other functions mentioned below;
+  SIMULATION: The main code, where all the constants and properties of the gear, mesh and operation. Holding all the other functions mentioned below;
   
-  ENGRENAGEM: Calculates the gear dimentions given the entries in SIMULACAO;
+  GEARS: Calculates the gear dimentions given the entries in SIMULATION;
   
-  OPERACAO: Calculates the gear mesh relations given the entries in SIMULACAO;
+  OPERATION: Calculates the gear mesh relations given the entries in SIMULATION;
   
-  ENGRENAMENTO: Calculates the mesh parameters given the gear and operation entries in SIMULACAO;
+  MESH: Calculates the mesh parameters given the gear and operation entries in SIMULATION;
   
-  MASSA: Calculates de equivalent mass of the sistem given the dimentions and the profile modification amount;
+  MASS: Calculates de equivalent mass of the sistem given the dimentions and the profile modification amount;
   
-  INTEG: Calculates de integrals for the stiffness by the energy formulas;
+  INTEGR: Calculates de integrals for the stiffness by the energy formulas;
   
-  ENERGIA: Calculates de stiffness by the energy formulas of the original and modified systems;
+  ENERGY: Calculates de stiffness by the energy formulas of the original and modified systems;
   
-  INTERP: Interpolate the discrete functions to obtain the continuos representation of the dynamic coefficients;
+  INTERPOLATION: Interpolate the discrete functions to obtain the continuos representation of the dynamic coefficients;
   
-  MODELO: Sets the space-states variables together with the acceleration of the original and modified system;
+  MODEL: Sets the space-states variables together with the acceleration of the original and modified system;
   
-  DINAMICA: Solves the original dynamic model;
+  DYNAMIC: Solves the original dynamic model;
   
-  DINAMICATPM: Solves the modified dynamic model;
+  DYNAMICTPM: Solves the modified dynamic model;
   
-  ACCELERACAO: Calculates the acceleration of the original and modified systems;
+  ACCEL: Calculates the acceleration of the original system;
   
-  SINAL: Quantifies the vibration signals;
+  ACCELTPM: Calculates the acceleration of the modified system;
+  
+  SIGNAL: Quantifies the vibration signals;
   
   PLOTS: Generate the graphics for analysis.
   
@@ -70,6 +69,6 @@ cylindrical spur gears. 2022. 113f. Bachelor's thesis (Mechanical Engineering) -
   
   For more technical details, take a look in the paperwork (for now, only available in portuguese - EN article incoming by the end of the year).
   
-  If you have any questions regarding the theory, models, code, or anything related, feel free to reach me out.
+  If you have any questions or ideas regarding the theory, models, code, or anything related, feel free to reach me out.
   
   Cheers!
