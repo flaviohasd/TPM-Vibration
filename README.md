@@ -3,7 +3,7 @@
   
   Release: 14/08/2022
   
-  Last Update: 08/04/2023
+  Last Update: 09/04/2023
    
 
 ## Introduction
@@ -59,11 +59,11 @@ cylindrical spur gears. 2022. 113f. Bachelor's thesis (Mechanical Engineering) -
   OUTPUT EXAMPLES:
   
   <p align="center">
-  <img src="https://user-images.githubusercontent.com/44821460/229649401-0d25b9ec-c8d3-4a33-8ed5-cbb5b5647c89.png" alt="Vibration over a tooth cycle" width="800" />
+  <img src="https://user-images.githubusercontent.com/44821460/230794069-064d7b4e-b72a-4928-a2f7-47bb70ca2b29.png" alt="Vibration over a tooth cycle" width="800" />
   </p>
 
   <p align="center">
-  <img src="https://user-images.githubusercontent.com/44821460/229649434-e6c5db90-def7-45b1-a3a1-66177c0f6cb1.png" alt="Contact relations" width="800" />
+  <img src="https://user-images.githubusercontent.com/44821460/230794334-d4810585-1a9b-4f79-8c62-2e1ce66c7869.png" alt="Contact relations" width="800" />
   </p>
   
   
