@@ -23,38 +23,47 @@ cylindrical spur gears. 2022. 113f. Bachelor's thesis (Mechanical Engineering) -
     <img src="https://user-images.githubusercontent.com/44821460/229648230-598b24b0-9d1d-4a95-9a83-59e314eb715f.png" alt="Optimization Flowchart" width="400" />
   </p>
   
-  OPTIMIZATION: Has the properties of the optimization function with the goal to evaluate the main code (SIMULATION) to get the optimum amount of modification;
   
-  SIMULATION: The main code, where all the constants and properties of the gear, mesh and operation. Holding all the other functions mentioned below;
+  <details>
+  <summary> Description of code files: </summary>
+
+  <br>
   
-  GEARS: Calculates the gear dimentions given the entries in SIMULATION;
+    OPTIMIZATION: Has the properties of the optimization function with the goal to evaluate the main code (SIMULATION) to get the optimum amount of modification;
+
+    SIMULATION: The main code, where all the constants and properties of the gear, mesh and operation. Holding all the other functions mentioned below;
+
+    GEARS: Calculates the gear dimentions given the entries in SIMULATION;
+
+    OPERATION: Calculates the gear mesh relations given the entries in SIMULATION;
+
+    MESH: Calculates the mesh parameters given the gear and operation entries in SIMULATION;
+
+    MASS: Calculates de equivalent mass of the sistem given the dimentions and the profile modification amount;
+
+    INTEGR: Calculates de integrals for the stiffness by the energy formulas;
+
+    ENERGY: Calculates de stiffness by the energy formulas of the original and modified systems;
+
+    INTERPOLATION: Interpolate the discrete functions to obtain the continuos representation of the dynamic coefficients;
+
+    MODEL: Sets the space-states variables together with the acceleration of the original and modified system;
+
+    DYNAMIC: Solves the original dynamic model;
+
+    DYNAMICTPM: Solves the modified dynamic model;
+
+    ACCEL: Calculates the acceleration of the original system;
+
+    ACCELTPM: Calculates the acceleration of the modified system;
+
+    SIGNAL: Quantifies the vibration signals;
+
+    PLOTS: Generate the graphics for analysis.
   
-  OPERATION: Calculates the gear mesh relations given the entries in SIMULATION;
+  </details>
   
-  MESH: Calculates the mesh parameters given the gear and operation entries in SIMULATION;
-  
-  MASS: Calculates de equivalent mass of the sistem given the dimentions and the profile modification amount;
-  
-  INTEGR: Calculates de integrals for the stiffness by the energy formulas;
-  
-  ENERGY: Calculates de stiffness by the energy formulas of the original and modified systems;
-  
-  INTERPOLATION: Interpolate the discrete functions to obtain the continuos representation of the dynamic coefficients;
-  
-  MODEL: Sets the space-states variables together with the acceleration of the original and modified system;
-  
-  DYNAMIC: Solves the original dynamic model;
-  
-  DYNAMICTPM: Solves the modified dynamic model;
-  
-  ACCEL: Calculates the acceleration of the original system;
-  
-  ACCELTPM: Calculates the acceleration of the modified system;
-  
-  SIGNAL: Quantifies the vibration signals;
-  
-  PLOTS: Generate the graphics for analysis.
-  
+  <br>
   
   OUTPUT EXAMPLES:
   
@@ -67,7 +76,7 @@ cylindrical spur gears. 2022. 113f. Bachelor's thesis (Mechanical Engineering) -
   </p>
   
   
-  For more technical details, take a look in the paperwork (for now, only available in portuguese - EN article incoming by the end of the year).
+  For more technical details, take a look in the paperwork (for now, only available in portuguese - EN article coming by the end of the year).
   
   If you have any questions or ideas regarding the theory, models, code, or anything related, feel free to reach me out.
   
