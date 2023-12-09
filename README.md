@@ -9,7 +9,11 @@
 ## Introduction
   Hello, my name is Flávio Dias. I'm a Mechanical Engineer graduated at Federal University of Amazonas (Brazil) and this project was developed for my final paper. The goal is to minimize the amplitude of the vibration signal of a spur gear mesh system (with contact ratio between 1 and 2) by performing a TPM - Tooth Profile Modification (specifically, changing the maximum amount of tip relief -adendum modification-) for a certain working condition.
   
-  Link to the paperwork: <a href= http://riu.ufam.edu.br/handle/prefix/6549 > DIAS, Flávio. Minimizing gear mesh vibration by the tooth profile modification of
+  Link to the paperwork: 
+
+  (EN) Article published by Springer Nature in the Journal of the Brazilian Society of Mechanical Sciences and Engineering: <a href= https://rdcu.be/ds3ID > Vibration attenuation on spur gears through optimal profile modification based on an alternative dynamic model, 2023.
+  
+  (PT) Final paper for the Mechanical Engineering degree: <a href= http://riu.ufam.edu.br/handle/prefix/6549 > DIAS, Flávio. Minimizing gear mesh vibration by the tooth profile modification of
 cylindrical spur gears. 2022. 113f. Bachelor's thesis (Mechanical Engineering) - Federal University of Amazonas, Manaus-AM, 2022.
 
 ## Abstract
@@ -26,7 +30,6 @@ cylindrical spur gears. 2022. 113f. Bachelor's thesis (Mechanical Engineering) -
   
   <details>
   <summary> Description of code files: </summary>
-
   <br>
   
     OPTIMIZATION: Has the properties of the optimization function with the goal to evaluate the main code (SIMULATION) to get the optimum amount of modification;
@@ -62,7 +65,18 @@ cylindrical spur gears. 2022. 113f. Bachelor's thesis (Mechanical Engineering) -
     PLOTS: Generate the graphics for analysis.
   
   </details>
-  
+  <br>
+
+  <details>
+  <summary> How to run the simulation and optimization: </summary>
+  <br>
+
+
+    OPTIMIZATION: Run the code "optimization.m". It will find the maximum amount of modification that will minimize the gear mesh vibration for the system declared in the "simulation.m" and "simulation2.m" files.
+
+    SIMULATION ONLY: Open the "simulation.m" file, remove the lines (1 and 97), uncomment the "deltamax" variable input (line 7) and the plot call (line 95). That will make the code run for the specified maximum amounf of modification for the declared system of gears in the code.
+
+  </details>
   <br>
   
   OUTPUT EXAMPLES:
