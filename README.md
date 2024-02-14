@@ -13,7 +13,7 @@
 
   (EN) Article published by Springer Nature in the Journal of the Brazilian Society of Mechanical Sciences and Engineering: <a href= https://rdcu.be/ds3ID > Vibration attenuation on spur gears through optimal profile modification based on an alternative dynamic model, 2023.
   
-  (PT) Final paper for the Mechanical Engineering degree: <a href= http://riu.ufam.edu.br/handle/prefix/6549 > DIAS, Flávio. Minimizing gear mesh vibration by the tooth profile modification of
+  (PT) Final paper for the Mechanical Engineering degree: <a href= https://riu.ufam.edu.br/bitstream/prefix/6549/3/TCC_FlavioDias.pdf > DIAS, Flávio. Minimizing gear mesh vibration by the tooth profile modification of
 cylindrical spur gears. 2022. 113f. Bachelor's thesis (Mechanical Engineering) - Federal University of Amazonas, Manaus-AM, 2022.
 
 ## Abstract
