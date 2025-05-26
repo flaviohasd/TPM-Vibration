@@ -8,7 +8,7 @@ function [RMS,RMStpm,Amp,Amptpm,Espectro,Espectrotpm,ft,fttpm] = signal(states,s
     Amptpm = peak2peak(statestpm(step/2:step)); % Peak-to-peak amplitude of the modified system
 
     Espectro = envspectrum(states(step/2:step),freq); % Frequency spectrum of the original signal
-    Espectrotpm = envspectrum(statestpm(step/2:step),freq); % Frequency spectrum of themodified signal
+    Espectrotpm = envspectrum(statestpm(step/2:step),freq); % Frequency spectrum of the modified signal
     
     pot2 = 2^nextpow2(length(states(:,1)));
     ft = fft(states(:,1),pot2);
