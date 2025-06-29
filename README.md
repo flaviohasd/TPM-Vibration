@@ -42,11 +42,11 @@ cylindrical spur gears. 2022. 113f. Bachelor's thesis (Mechanical Engineering) -
 
     MESH: Calculates the mesh parameters given the gear and operation entries in SIMULATION;
 
-    MASS: Calculates de equivalent mass of the sistem given the dimentions and the profile modification amount;
+    MASS: Calculates the equivalent mass of the sistem given the dimentions and the profile modification amount;
 
-    INTEGR: Calculates de integrals for the stiffness by the energy formulas;
+    INTEGR: Calculates the integrals for the stiffness by the energy formulas;
 
-    ENERGY: Calculates de stiffness by the energy formulas of the original and modified systems;
+    ENERGY: Calculates the stiffness by the energy formulas of the original and modified systems;
 
     INTERPOLATION: Interpolate the discrete functions to obtain the continuos representation of the dynamic coefficients;
 
@@ -74,7 +74,7 @@ cylindrical spur gears. 2022. 113f. Bachelor's thesis (Mechanical Engineering) -
 
     OPTIMIZATION: Run the code "optimization.m". It will find the maximum amount of modification that will minimize the gear mesh vibration for the system declared in the "simulation.m" and "simulation2.m" files.
 
-    SIMULATION ONLY: Open the "simulation.m" file, remove the lines (1 and 97), uncomment the "deltamax" variable input (line 7) and the plot call (line 95). That will make the code run for the specified maximum amounf of modification for the declared system of gears in the code.
+    SIMULATION ONLY: Open the "simulation.m" file, remove the lines (1 and 97), uncomment the "deltamax" variable input (line 7) and the plot call (line 95). That will make the code run for the specified maximum amount of modification for the declared system of gears in the code.
 
   </details>
   <br>
