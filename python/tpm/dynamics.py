@@ -51,7 +51,7 @@ def simulate_dynamic(
         x, v = y
         return [v, -k * x / mass - damping * v / mass + excitation / mass]
 
-    time_grid = np.linspace(time_span[0], time_span[1], 400)
+    time_grid = np.linspace(time_span[0], time_span[1], len(k_te) * 10)
     sol = solve_ivp(rhs, time_span, [initial_state[0], initial_state[1]], t_eval=time_grid, rtol=1e-6, atol=1e-9)
     x = sol.y[0]
     v = sol.y[1]
