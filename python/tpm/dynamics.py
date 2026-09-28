@@ -21,6 +21,7 @@ def simulate_dynamic(
     force: float,
     time_span: tuple[float, float],
     initial_state: tuple[float, float] = (0.0, 0.0),
+    num_points: int | None = None,
 ) -> DynamicResponse:
     """Solve a simple 1-DOF dynamic system using precomputed stiffness and damping."""
 
@@ -51,7 +52,8 @@ def simulate_dynamic(
         x, v = y
         return [v, -k * x / mass - damping * v / mass + excitation / mass]
 
-    time_grid = np.linspace(time_span[0], time_span[1], len(k_te) * 10)
+    grid_pts = 400 if num_points is None else int(num_points)
+    time_grid = np.linspace(time_span[0], time_span[1], grid_pts)
     sol = solve_ivp(rhs, time_span, [initial_state[0], initial_state[1]], t_eval=time_grid, rtol=1e-6, atol=1e-9)
     x = sol.y[0]
     v = sol.y[1]
