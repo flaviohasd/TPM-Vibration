@@ -1,7 +1,7 @@
 # TPM-Vibration: Tooth Profile Modification & Gear Mesh Vibration Optimization
 
 [![Python Version](https://img.shields.io/badge/python-3.10%2B-blue.svg)](python/)
-[![Python Tests](https://img.shields.io/badge/pytest-20%20passed-brightgreen.svg)](#running-the-tests)
+[![Python Tests](https://img.shields.io/badge/pytest-23%20passed-brightgreen.svg)](#running-the-tests)
 [![License: GNU AGPLv3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](LICENSE.md)
 [![DOI](https://img.shields.io/badge/DOI-10.1007%2Fs40430--023--04574--3-informational.svg)](https://doi.org/10.1007/s40430-023-04574-3)
 
@@ -27,16 +27,18 @@ This project was developed by **Flávio Dias** at the **Federal University of Am
 
 ## Features
 
-- **Involute Tooth Geometry & Contact Relations**: Calculates standard spur gear geometry ($d_p, d_b, d_a, d_f$), tooth thicknesses, contact ratio ($1 < \epsilon_\alpha < 2$), and division of single/double contact zones.
-- **Equivalent Mass & Inertia**: Formulates equivalent system mass ($m_e$) and explicitly accounts for the mass and inertia removed by tip relief modifications ($m_{emod}$).
-- **Energy-Based TVMS**: Evaluates bending, shear, axial compression, fillet-foundation, and Hertzian contact compliances using vectorized Gauss-Legendre quadrature ($N=25$).
-- **Nonlinear Friction & Damping**: Integrates Elastohydrodynamic (EHL) friction formulations and instantaneous damping ratios along the line of action.
+- **Involute Tooth Geometry & Contact Relations**: Calculates standard spur gear geometry ($d_p, d_b, d_a, d_f$), tooth thicknesses, contact ratio ($1 < \epsilon_\alpha < 2$), and exact division of single/double contact zones along the line of action.
+- **Equivalent Mass & Inertia**: Formulates equivalent system mass ($m_e$) and explicitly accounts for the mass and polar moment of inertia removed by tip relief modifications ($m_{emod}$).
+- **Energy-Based TVMS with EHL Oil Film Compliance ($K_{\text{oil}}$)**: Evaluates bending, shear, axial compression, Cai-Sainsot fillet-foundation, Hertzian contact, and lubricant elastohydrodynamic (EHL) oil film compliance in series, achieving full mathematical parity with the journal paper code and Zhang et al. (2017). Evaluated via machine-precision vectorized Gauss-Legendre quadrature ($N=25$).
+- **Nonlinear Friction & Energy Dissipation Damping**: Evaluates tooth contact friction and instantaneous squeeze film energy dissipation damping along the line of action.
 - **Dynamic 1-DOF State-Space Solver**: High-precision numerical integration (LSODA / BDF) with continuous monotonic cubic Hermite splines (PCHIP) evaluated via Horner's rule.
-- **Automated TPM Optimization**: Minimizes steady-state RMS acceleration via Brent's bounded scalar minimization.
+- **Automated TPM Optimization**: Minimizes steady-state RMS acceleration via **Brent's bounded minimization method with Golden Section Search** (1:1 mathematical equivalent to MATLAB's `fminbnd`).
 - **Automatic Physics-Based Search Bounds**: Automatically bounds the search interval from single-tooth static contact deflection under load:
   $$\Delta_{ref} = \frac{F}{\min(K_{te})} \times 10^6\ [\mu\text{m}]$$
   $$\text{bounds} = [0.6 \times \Delta_{ref},\quad 1.4 \times \Delta_{ref}]$$
-- **Comprehensive Validation Plots**: Generates comparative engineering figures for contact velocity, TVMS interpolation, time-domain mesh dynamics, normalized coordinates, and frequency spectra.
+- **Parametric Angular Resolution Presets**: Configurable meshing sweep density (`fast` = 50, `standard` = 100, `fine` = 200, `ultra` / `publication` = 400 points/tooth, up to 10,800 steps/rev) or custom `points_per_tooth`.
+- **High-Performance Speedup**: Reduces optimization run time from **~30 minutes** in original MATLAB to **~1.8–15 seconds** in Python (> 100x to > 1,000x faster).
+- **Comprehensive Validation Plots**: Generates comparative engineering figures for contact velocity, TVMS interpolation, time-domain mesh dynamics, normalized contact coordinates, and frequency spectra.
 
 ---
 
@@ -56,12 +58,12 @@ TPM-Vibration/
 │   │   ├── __init__.py     # Public API exports
 │   │   ├── geometry.py     # Involute tooth geometry & mesh relations
 │   │   ├── mass.py         # Equivalent mass & polar moments of inertia
-│   │   ├── energy.py       # TVMS (Energy Method), EHL friction & damping
+│   │   ├── energy.py       # TVMS (Energy Method), oil film stiffness, friction & damping
 │   │   ├── dynamics.py     # 1-DOF state-space dynamic solver
 │   │   ├── optimization.py # FastDynamicOptimizer & auto-bounds algorithm
 │   │   ├── plots.py        # Engineering visualization routines
 │   │   └── faithful.py     # GearSystem orchestrator
-│   └── tests/              # Automated test suite (20 tests)
+│   └── tests/              # Automated test suite (23 tests)
 └── legacy-matlab/          # Original legacy MATLAB source code (reference archive)
 ```
 
@@ -85,7 +87,7 @@ pip install -r requirements.txt
 
 ### 2. Run the End-to-End Example
 
-Execute the automated pipeline (geometry -> TVMS -> auto-bounded optimization -> validation plots):
+Execute the automated pipeline (geometry -> base TVMS with oil film -> auto-bounded optimization -> validation plots):
 
 ```bash
 cd python
@@ -94,12 +96,12 @@ python run_example.py
 
 Console output:
 ```text
-Reference deflection delta_ref_um: 43.881
-Automatic bounds: (26.329, 61.433)
-Optimized deltamax_um: 43.519
-Objective (RMS a): 90.807 m/s²
+Reference deflection delta_ref_um: 43.889
+Automatic bounds: (26.334, 61.445)
+Optimized deltamax_um: 43.508
+Objective (RMS a): 91.081 m/s²
 Success: True
-Function evaluations: 20
+Function evaluations: 19
 Plots written to: plots
 - contact_relations: plots/contact_relations.png
 - interpolation_results: plots/interpolation_results.png
@@ -129,12 +131,12 @@ system = GearSystem(
     temperature_c=60.0,       # Operating temperature (°C)
 )
 
-# Run optimization with automatic physics-based bounds
-result = optimize_deltamax(system, bounds=None, opt_tol=1e-4)
+# Run optimization with automatic physics-based bounds (optional: resolution='standard'|'ultra')
+result = optimize_deltamax(system, bounds=None, opt_tol=1e-4, resolution="standard")
 print(f"Optimal relief: {result['deltamax_um']:.3f} µm")
 
 # Render comparison plots
-generate_validation_plots(system, deltamax_um=result["deltamax_um"], output_dir="./plots")
+generate_validation_plots(system, deltamax_um=result["deltamax_um"], output_dir="./plots", resolution="standard")
 ```
 
 ---

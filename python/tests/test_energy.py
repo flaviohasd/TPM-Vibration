@@ -77,3 +77,32 @@ def test_integral_compliance_matches_matlab_formula_structure():
     value = _integral_compliance("ikbi", 0.2, 0.3, 0.4, 206e9, 25.0, 0.3)
     assert np.isfinite(value)
     assert value > 0.0
+
+
+def test_energy_state_resolution_presets_and_points_per_tooth():
+    from tpm.faithful import GearSystem
+
+    system = GearSystem(
+        z1=27,
+        z2=35,
+        module=3.0,
+        alpha_deg=20.0,
+        b_mm=25.0,
+        elasticity_modulus=206e9,
+        poisson_ratio=0.3,
+        density=7850.0,
+        power_w=80e3,
+        rpm=2000.0,
+        lubricant_density=870.0,
+        temperature_c=60.0,
+    )
+
+    state_fast = precompute_energy_state(system, resolution="fast")
+    assert state_fast["k_te"].shape == (27 * 50,)
+
+    state_std = precompute_energy_state(system, resolution="standard")
+    assert state_std["k_te"].shape == (27 * 100,)
+
+    state_pts = precompute_energy_state(system, points_per_tooth=75)
+    assert state_pts["k_te"].shape == (27 * 75,)
+
