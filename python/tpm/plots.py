@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Dict
+from typing import Dict, Optional
 
 import matplotlib
 
@@ -14,7 +14,14 @@ from .energy import precompute_energy_state
 from .friction import precompute_friction_state
 
 
-def generate_validation_plots(system, deltamax_um: float = 40.0, output_dir: str | Path | None = None) -> Dict[str, Path]:
+def generate_validation_plots(
+    system,
+    deltamax_um: float = 40.0,
+    output_dir: str | Path | None = None,
+    step: Optional[int] = None,
+    points_per_tooth: Optional[int] = None,
+    resolution: str = "ultra",
+) -> Dict[str, Path]:
     """Generate MATLAB-style validation plots matching the TCC and paper."""
     output_dir = Path(output_dir or "./plots")
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -50,7 +57,15 @@ def generate_validation_plots(system, deltamax_um: float = 40.0, output_dir: str
         deltamax_um=deltamax_um,
     )
 
-    step = 1000
+    z1 = int(base_system.z1)
+    if points_per_tooth is not None:
+        step = int(z1 * points_per_tooth)
+    elif step is not None:
+        step = int(step)
+    else:
+        preset_map = {"fast": 50, "standard": 100, "fine": 200, "ultra": 400, "publication": 400}
+        step = int(z1 * preset_map.get(resolution, 400))
+
     w = base_system.operation["w"]
     t_period = 2.0 * np.pi / w
     F = base_system.operation["F"]
@@ -207,9 +222,41 @@ def generate_validation_plots(system, deltamax_um: float = 40.0, output_dir: str
     axes[1, 0].grid(True, linestyle=":", alpha=0.6)
     axes[1, 0].legend(loc="upper right")
 
-    vrel_base = base_energy.get("vrel", base_energy.get("vrelv"))
-    if vrel_base is not None:
-        axes[1, 1].plot(t, vrel_base, label="Δmax = 0 μm", linewidth=1.0, color="#1f77b4")
+    # Construct exact full-rotation relative velocity profile with zero sampling jitter
+    th_contact = 2.0 * thetad + thetas
+    t_cycle = th_contact / w
+    n_pts_per_cycle = max(100, int(round(step / z1)))
+    n_full_cycles = int(np.floor(t_period / t_cycle))
+    remainder_time = t_period - n_full_cycles * t_cycle
+
+    th_single_cycle = np.linspace(0.0, th_contact, n_pts_per_cycle)
+    phi_single_cycle = th_single_cycle + alpha10
+    x1_sc = rb1 * (thetab1 + phi_single_cycle)
+    x2_sc = L - x1_sc
+    v_single_cycle = np.abs(w * x1_sc / 1000.0 - (rp1 / rp2) * w * x2_sc / 1000.0)
+
+    t_vrel_list = []
+    vrel_list = []
+    for c in range(n_full_cycles):
+        t_c = c * t_cycle + np.linspace(0.0, t_cycle, n_pts_per_cycle, endpoint=False)
+        t_vrel_list.append(t_c)
+        vrel_list.append(v_single_cycle)
+
+    if remainder_time > 0:
+        n_rem = max(10, int(round(n_pts_per_cycle * remainder_time / t_cycle)))
+        th_rem = np.linspace(0.0, remainder_time * w, n_rem)
+        phi_rem = th_rem + alpha10
+        x1_rem = rb1 * (thetab1 + phi_rem)
+        x2_rem = L - x1_rem
+        v_rem = np.abs(w * x1_rem / 1000.0 - (rp1 / rp2) * w * x2_rem / 1000.0)
+        t_rem = n_full_cycles * t_cycle + th_rem / w
+        t_vrel_list.append(t_rem)
+        vrel_list.append(v_rem)
+
+    t_vrel = np.concatenate(t_vrel_list)
+    vrel_clean = np.concatenate(vrel_list)
+
+    axes[1, 1].plot(t_vrel, vrel_clean, label="Δmax = 0 μm", linewidth=1.0, color="#1f77b4")
     axes[1, 1].set_title("Contact relative velocity (Full rotation)")
     axes[1, 1].set_xlabel("t (s)")
     axes[1, 1].set_ylabel("v_rel (m/s)")
