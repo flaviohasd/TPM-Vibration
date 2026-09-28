@@ -30,9 +30,9 @@ This project was developed by **Flávio Dias** at the **Federal University of Am
 - **Involute Tooth Geometry & Contact Relations**: Calculates standard spur gear geometry ($d_p, d_b, d_a, d_f$), tooth thicknesses, contact ratio ($1 < \epsilon_\alpha < 2$), and division of single/double contact zones.
 - **Equivalent Mass & Inertia**: Formulates equivalent system mass ($m_e$) and explicitly accounts for the mass and inertia removed by tip relief modifications ($m_{emod}$).
 - **Energy-Based TVMS**: Evaluates bending, shear, axial compression, fillet-foundation, and Hertzian contact compliances using vectorized Gauss-Legendre quadrature ($N=25$).
-- **Time-Varying Friction & Damping**: Formulates contact friction and instantaneous damping ratios along the line of action based on Luo & Li's formulation and Thomson's dissipated energy approach.
+- **Nonlinear Friction & Damping**: Evaluates tooth friction and instantaneous squeeze film damping ratios along the line of action.
 - **Dynamic 1-DOF State-Space Solver**: High-precision numerical integration (LSODA / BDF) with continuous monotonic cubic Hermite splines (PCHIP) evaluated via Horner's rule.
-- **Automated TPM Optimization**: Minimizes steady-state RMS acceleration via Brent's bounded scalar minimization.
+- **Automated TPM Optimization**: Minimizes steady-state RMS acceleration via **Golden Section Search & Brent's method** (1:1 mathematical equivalent to MATLAB's `fminbnd`).
 - **Automatic Physics-Based Search Bounds**: Automatically bounds the search interval from single-tooth static contact deflection under load:
   $$\Delta_{ref} = \frac{F}{\min(K_{te})} \times 10^6\ [\mu\text{m}]$$
   $$\text{bounds} = [0.6 \times \Delta_{ref},\quad 1.4 \times \Delta_{ref}]$$

@@ -1,6 +1,6 @@
 # TPM-Vibration (Python Engine)
 
-High-performance scientific Python engine for cylindrical spur gear modeling, time-varying mesh stiffness (TVMS), time-varying friction and damping, dynamic mesh response, and tooth profile modification (TPM) tip relief optimization.
+High-performance scientific Python engine for cylindrical spur gear modeling, time-varying mesh stiffness (TVMS), nonlinear elastohydrodynamic (EHL) damping, dynamic mesh response, and tooth profile modification (TPM) tip relief optimization.
 
 ---
 
