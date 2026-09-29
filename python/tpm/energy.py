@@ -79,13 +79,25 @@ def _calc_compliances_vectorized(
 
 def precompute_energy_state(
     system,
-    step: int = 400,
+    step: Optional[int] = None,
+    points_per_tooth: Optional[int] = None,
+    resolution: Optional[str] = None,
     friction_model: str = "constant",
     fixed_mu: Optional[float] = 0.1211,
 ) -> Dict[str, np.ndarray]:
     """Precompute the exact MATLAB energy-based TVMS, damping, and normalized profile modifications."""
     z1 = int(system.z1)
     z2 = int(system.z2)
+
+    if points_per_tooth is not None:
+        step = int(z1 * points_per_tooth)
+    elif resolution is not None:
+        preset_map = {"fast": 50, "standard": 100, "fine": 200, "ultra": 400, "publication": 400}
+        step = int(z1 * preset_map.get(resolution, 400))
+    elif step is not None:
+        step = int(step)
+    else:
+        step = 400
     alpha = float(system.geometry["alpha"])
     pb = float(system.geometry["pb"])
     rb1 = float(system.geometry["rb1"])

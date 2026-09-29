@@ -1,7 +1,7 @@
 # TPM-Vibration: Tooth Profile Modification & Gear Mesh Vibration Optimization
 
 [![Python Version](https://img.shields.io/badge/python-3.10%2B-blue.svg)](python/)
-[![Python Tests](https://img.shields.io/badge/pytest-23%20passed-brightgreen.svg)](#running-the-tests)
+[![Python Tests](https://img.shields.io/badge/pytest-22%20passed-brightgreen.svg)](#running-the-tests)
 [![License: GNU AGPLv3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](LICENSE.md)
 [![DOI](https://img.shields.io/badge/DOI-10.1007%2Fs40430--023--04574--3-informational.svg)](https://doi.org/10.1007/s40430-023-04574-3)
 
@@ -29,8 +29,8 @@ This project was developed by **Flávio Dias** at the **Federal University of Am
 
 - **Involute Tooth Geometry & Contact Relations**: Calculates standard spur gear geometry ($d_p, d_b, d_a, d_f$), tooth thicknesses, contact ratio ($1 < \epsilon_\alpha < 2$), and exact division of single/double contact zones along the line of action.
 - **Equivalent Mass & Inertia**: Formulates equivalent system mass ($m_e$) and explicitly accounts for the mass and polar moment of inertia removed by tip relief modifications ($m_{emod}$).
-- **Energy-Based TVMS with EHL Oil Film Compliance ($K_{\text{oil}}$)**: Evaluates bending, shear, axial compression, Cai-Sainsot fillet-foundation, Hertzian contact, and lubricant elastohydrodynamic (EHL) oil film compliance in series, achieving full mathematical parity with the journal paper code and Zhang et al. (2017). Evaluated via machine-precision vectorized Gauss-Legendre quadrature ($N=25$).
-- **Nonlinear Friction & Energy Dissipation Damping**: Evaluates tooth contact friction and instantaneous squeeze film energy dissipation damping along the line of action.
+- **Energy-Based TVMS**: Evaluates bending, shear, axial compression, Cai-Sainsot fillet-foundation, and Hertzian contact compliances in series, achieving full mathematical parity with the journal paper code and thesis. Evaluated via machine-precision vectorized Gauss-Legendre quadrature ($N=25$).
+- **Frictional Energy Dissipation Mesh Damping**: Evaluates tooth contact friction and instantaneous mesh damping ratio ($\zeta$) and coefficient ($C$) based on frictional dissipation work and contact strain energy along the line of action.
 - **Dynamic 1-DOF State-Space Solver**: High-precision numerical integration (LSODA / BDF) with continuous monotonic cubic Hermite splines (PCHIP) evaluated via Horner's rule.
 - **Automated TPM Optimization**: Minimizes steady-state RMS acceleration via **Brent's bounded minimization method with Golden Section Search** (1:1 mathematical equivalent to MATLAB's `fminbnd`).
 - **Automatic Physics-Based Search Bounds**: Automatically bounds the search interval from single-tooth static contact deflection under load:
@@ -58,12 +58,12 @@ TPM-Vibration/
 │   │   ├── __init__.py     # Public API exports
 │   │   ├── geometry.py     # Involute tooth geometry & mesh relations
 │   │   ├── mass.py         # Equivalent mass & polar moments of inertia
-│   │   ├── energy.py       # TVMS (Energy Method), oil film stiffness, friction & damping
+│   │   ├── energy.py       # TVMS (Energy Method), compliances, friction & damping
 │   │   ├── dynamics.py     # 1-DOF state-space dynamic solver
 │   │   ├── optimization.py # FastDynamicOptimizer & auto-bounds algorithm
 │   │   ├── plots.py        # Engineering visualization routines
 │   │   └── faithful.py     # GearSystem orchestrator
-│   └── tests/              # Automated test suite (23 tests)
+│   └── tests/              # Automated test suite (22 tests)
 └── legacy-matlab/          # Original legacy MATLAB source code (reference archive)
 ```
 
@@ -87,7 +87,7 @@ pip install -r requirements.txt
 
 ### 2. Run the End-to-End Example
 
-Execute the automated pipeline (geometry -> base TVMS with oil film -> auto-bounded optimization -> validation plots):
+Execute the automated pipeline (geometry -> base TVMS -> auto-bounded optimization -> validation plots):
 
 ```bash
 cd python
@@ -96,12 +96,12 @@ python run_example.py
 
 Console output:
 ```text
-Reference deflection delta_ref_um: 43.889
-Automatic bounds: (26.334, 61.445)
-Optimized deltamax_um: 43.508
-Objective (RMS a): 91.081 m/s²
+Reference deflection delta_ref_um: 43.881
+Automatic bounds: (26.329, 61.433)
+Optimized deltamax_um: 43.519
+Objective (RMS a): 90.807 m/s²
 Success: True
-Function evaluations: 19
+Function evaluations: 20
 Plots written to: plots
 - contact_relations: plots/contact_relations.png
 - interpolation_results: plots/interpolation_results.png
