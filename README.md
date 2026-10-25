@@ -185,12 +185,12 @@ If you use this model or software in your research or engineering work, please c
 
 ```bibtex
 @article{Dias2024Vibration,
-  author    = {Dias, Fl{\'a}vio H. A. S. and Silva, Geraldo C. and Chui, David S.},
+  author    = {Dias, Fl{\'a}vio H. A. S. and Silva Neto, Gustavo C. and Chui, Danilo S.},
   title     = {Vibration attenuation on spur gears through optimal profile modification based on an alternative dynamic model},
   journal   = {Journal of the Brazilian Society of Mechanical Sciences and Engineering},
   volume    = {46},
-  number    = {1},
-  pages     = {10},
+  number    = {10},
+  pages     = {17},
   year      = {2024},
   doi       = {10.1007/s40430-023-04574-3}
 }
